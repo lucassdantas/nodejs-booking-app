@@ -22,7 +22,6 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'public')));
-
 const sessionOptions = session({
   secret: 'akasdfj0út23453456+54qt23qv  qwf qwer qwer qewr asdasdasda a6()',
   store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
