@@ -21,11 +21,8 @@ class Login {
     if(this.errors.length > 0) return
     const salt = bcryptjs.genSaltSync()
     this.body.password = bcryptjs.hashSync(this.body.password, salt)
-    try {
-      this.user =  await LoginModel.create(this.body)
-    } catch (errors) {
-      console.log(errors)
-    }
+    this.user =  await LoginModel.create(this.body)
+    
   }
 
   async userExists(){

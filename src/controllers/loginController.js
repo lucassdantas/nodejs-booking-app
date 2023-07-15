@@ -13,15 +13,19 @@ exports.register = async (req, res) => {
                return res.redirect('/login')
             })
             return
+        }else{
+            req.flash('sucess', 'Seu usuário foi criado com sucesso');
+            req.session.save(() => {
+                return res.redirect('back')
+             })
         }
-        req.flash('sucess', 'Seu usuário foi criado com sucesso');
-        req.session.save(() => {
-           return res.redirect('back')
-        })
         return
     } catch (error) {
         console.log(error)
         return res.render('404')
     }
-    
+}
+
+exports.login = (req, res) => {
+    res.send('oi')
 }
