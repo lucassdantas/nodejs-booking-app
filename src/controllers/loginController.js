@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
             })
             return
         }else{
-            req.flash('sucess', 'Seu usuário foi criado com sucesso');
+            req.flash('success', 'Seu usuário foi criado com sucesso');
             req.session.save(() => {
                 return res.redirect('/login/')
              })
@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
             })
             return
         }else{
-            req.flash('sucess', 'Você entrou');
+            req.flash('success', 'Você entrou');
             req.session.user = login.user
             req.session.save(() => {
                 return res.redirect('/')
