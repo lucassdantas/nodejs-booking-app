@@ -9,13 +9,19 @@ const ContactSchema = new mongoose.Schema({
 });
 
 const ContactModel = mongoose.model('Contact', ContactSchema);
-
+Contact.buscaPorId = async(id) => {
+  if(typeof id !== "string") return
+  const user = await ContactModel.findById(id)
+  return user
+}
 class Contact {
   constructor(body){
     this.body = body;
     this.errors = []
     this.contato = null
   }
+
+
   async register(){
     this.valida()
     
